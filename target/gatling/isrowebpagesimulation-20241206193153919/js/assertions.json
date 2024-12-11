@@ -1,0 +1,10 @@
+{
+  "simulation": "com.gatling.tests.ISROWebPageSimulation",
+  "simulationId": "isrowebpagesimulation",
+  "start": 1733513513919,
+  "description": "Load test for ISRO web page",
+  "scenarios": ["ISROWebPageSimulation"],
+  "assertions": [
+
+  ]
+}
