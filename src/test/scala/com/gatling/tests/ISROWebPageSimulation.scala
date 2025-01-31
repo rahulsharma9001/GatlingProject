@@ -5,6 +5,7 @@ import scala.concurrent.duration._
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import io.gatling.jdbc.Predef._
+import scala.language.postfixOps
 
 class ISROWebPageSimulation extends Simulation {
 
@@ -612,5 +613,10 @@ class ISROWebPageSimulation extends Simulation {
 			.get("/assets/fonts/bootstrap-icons.woff2?a74547b2f0863226942ff8ded57db345")
 			.headers(headers_42)))
 
-	setUp(scn.inject(atOnceUsers(1))).protocols(httpProtocol)
+	setUp(
+		scn.inject(
+			nothingFor(5), // Waiting for 5 Seconds before Starting
+			atOnceUsers(10), // 1 User at Once
+			rampUsers(10).during(5), // Gradual ramp-up of 10 users in 5 Seconds
+		).protocols(httpProtocol))
 }

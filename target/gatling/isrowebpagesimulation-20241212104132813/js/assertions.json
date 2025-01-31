@@ -1,0 +1,10 @@
+{
+  "simulation": "com.gatling.tests.ISROWebPageSimulation",
+  "simulationId": "isrowebpagesimulation",
+  "start": 1734000092813,
+  "description": "injection profiles",
+  "scenarios": ["ISROWebPageSimulation"],
+  "assertions": [
+
+  ]
+}
